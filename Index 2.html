@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CartoonAgeMe - Beta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input[type="file"] {
+            margin: 10px 0;
+        }
+        .preview {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CartoonAgeMe - Beta</h2>
+        <p>Upload an image to apply cartoon aging effects!</p>
+        <input type="file" id="imageUpload" accept="image/*">
+        <div class="preview" id="preview"></div>
+        <button onclick="applyEffect()">Apply Cartoon Aging</button>
+    </div>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            let reader = new FileReader();
+            reader.onload = function(){
+                let img = document.createElement('img');
+                img.src = reader.result;
+                document.getElementById('preview').innerHTML = '';
+                document.getElementById('preview').appendChild(img);
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        });
+
+        function applyEffect() {
+            alert("Cartoon aging effect will be applied here!");
+            // Placeholder for AI processing logic
+        }
+    </script>
+</body>
+</html>
